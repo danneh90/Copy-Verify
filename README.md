@@ -5,4 +5,5 @@ Simple ruby project to compare two directories and show the files missing from e
 
 Example: 
 ruby copy-verify.rb /First/Folder/Location /Second/Folder/Location 20
+
 this will compare the two locations and perform MD5 on 20 random files.
