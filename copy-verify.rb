@@ -16,18 +16,18 @@ def randommd5 file_list, folder_a, folder_b, number_to_check
     puts "#{i}: #{filename}"
   
     sourcemd = `md5 \"#{folder_a}/#{filename}\"`
-    smd = sourcemd.slice(-33..-1)
+    smd = sourcemd.slice(-33..-2)
     puts "\t#{smd} Source MD5"
   
 
     destmd = `md5 \"#{folder_b}/#{filename}\"`
-    dmd = destmd.slice(-33..-1)
+    dmd = destmd.slice(-33..-2)
     puts "\t#{dmd} Destination MD5"
   
     if dmd.eql?(smd)
-      puts "They are ok\n\n"
+      puts "\e[32mFile is ok\e[0m\n\n"
     else
-      puts "Error with file \a\n\n"
+      puts "\e[31mError with file \e[0m\a\n\n"
       array_of_bad_files << filename
     end
   
@@ -52,6 +52,8 @@ def count_and_compare files_in_a, files_in_b
   end
 
 end
+
+usage
 
 # Get arguments
 source_d = Dir.pwd
